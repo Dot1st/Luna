@@ -1,0 +1,253 @@
+<!-- SHARED NAVIGATION - Include this in all pages -->
+
+<style>
+  /* Navigation Header Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #4b2e83 0%, #2d174f 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(75, 46, 131, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: "Vazirmatn", sans-serif;
+  }
+
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: #bfa8d8;
+    border-bottom-color: #bfa8d8;
+    background: rgba(191, 168, 216, 0.1);
+  }
+
+  .nav-link.active {
+    color: #bfa8d8;
+    border-bottom-color: #bfa8d8;
+  }
+
+  /* Footer Styles */
+  .footer {
+    background: linear-gradient(135deg, #2d174f 0%, #4b2e83 100%);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 3rem 2rem 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(191, 168, 216, 0.2);
+    font-family: "Vazirmatn", sans-serif;
+  }
+
+  .footer-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #bfa8d8;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: #bfa8d8;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(191, 168, 216, 0.2);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-wrap: wrap;
+    }
+
+    .nav-menu {
+      width: 100%;
+      flex-direction: column;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(45, 23, 79, 0.95);
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-link {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(191, 168, 216, 0.1);
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<!-- HEADER/NAVIGATION -->
+<nav class="navbar">
+  <div class="navbar-brand">🌹 Luna Florale</div>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+    <span id="menu-icon">☰</span>
+  </button>
+  <ul class="nav-menu" id="navMenu">
+    <li class="nav-item"><a href="LunaFlorale_About.html" class="nav-link" onclick="setActive(this)">درباره</a></li>
+    <li class="nav-item"><a href="LunaFlorale_Gallery_v5 Nahayi.html" class="nav-link" onclick="setActive(this)">گالری</a></li>
+    <li class="nav-item"><a href="LunaFlorale_FAQ.html" class="nav-link" onclick="setActive(this)">سوالات متداول</a></li>
+    <li class="nav-item"><a href="سبد خرید.html" class="nav-link" onclick="setActive(this)">سبد خرید</a></li>
+    <li class="nav-item"><a href="LunaFlorale_MyOrders.html" class="nav-link" onclick="setActive(this)">سفارش‌های من</a></li>
+    <li class="nav-item"><a href="ویرایش_20و_20تکمیل_20پروفایل.html" class="nav-link" onclick="setActive(this)">پروفایل</a></li>
+    <li class="nav-item"><a href="LunaFlorale_PaymentMethods.html" class="nav-link" onclick="setActive(this)">روش‌های پرداخت</a></li>
+    <li class="nav-item"><a href="LunaFlorale_ShippingConditions.html" class="nav-link" onclick="setActive(this)">شرایط ارسال</a></li>
+  </ul>
+</nav>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>درباره Luna Florale</h4>
+      <p>ما متخصص در طراحی و تحویل دسته‌های گل لوکس برای هر مناسبتی هستیم.</p>
+    </div>
+    <div class="footer-section">
+      <h4>صفحات مفید</h4>
+      <ul>
+        <li><a href="LunaFlorale_About.html">درباره ما</a></li>
+        <li><a href="LunaFlorale_FAQ.html">سوالات متداول</a></li>
+        <li><a href="LunaFlorale_ShippingConditions.html">شرایط ارسال</a></li>
+        <li><a href="LunaFlorale_PaymentMethods.html">روش‌های پرداخت</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>دسته‌بندی</h4>
+      <ul>
+        <li><a href="LunaFlorale_Moment_Birthday.html">تولد</a></li>
+        <li><a href="LunaFlorale_Moment_Love.html">عشق و رومانتیک</a></li>
+        <li><a href="LunaFlorale_Moment_Luxury.html">لوکس</a></li>
+        <li><a href="LunaFlorale_Moment_Memorial.html">یادبود</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>تماس با ما</h4>
+      <ul>
+        <li>☎️ تلفن: 09XX-XXX-XXXX</li>
+        <li>📧 ایمیل: info@lunaflorale.com</li>
+        <li>📍 آدرس: تهران، ایران</li>
+        <li>⏰ ساعات کاری: 9 صبح - 7 شب</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Luna Florale. تمام حقوق محفوظ است.</p>
+  </div>
+</footer>
+
+<!-- NAVIGATION JAVASCRIPT -->
+<script>
+  function toggleMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const menuIcon = document.getElementById('menu-icon');
+    navMenu.classList.toggle('active');
+    menuIcon.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+  }
+
+  function setActive(element) {
+    // Remove active class from all links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    // Add active class to clicked link
+    element.classList.add('active');
+    // Close mobile menu if open
+    const navMenu = document.getElementById('navMenu');
+    if (navMenu.classList.contains('active')) {
+      toggleMenu();
+    }
+  }
+
+  // Set active link based on current page
+  function initializeActiveLink() {
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.includes(currentPage.split('.')[0])) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // Initialize active link on page load
+  document.addEventListener('DOMContentLoaded', initializeActiveLink);
+</script>

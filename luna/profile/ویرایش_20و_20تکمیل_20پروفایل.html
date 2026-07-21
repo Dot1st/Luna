@@ -1,0 +1,1866 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Luna Florale - Luxury flower boutique" />
+  <title>ویرایش و تکمیل پروفایل | Luna Florale</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #F5F0FA;
+      --paper: #FFFDFB;
+      --white: #FFFFFF;
+      --plum: #4B2E83;
+      --plum-dark: #2D174F;
+      --lavender: #BFA8D8;
+      --lavender-light: #EEE7F5;
+      --ink: #251D2D;
+      --muted: #756D7B;
+      --line: rgba(75, 46, 131, 0.13);
+      --shadow: 0 18px 55px rgba(59, 35, 86, 0.10);
+      --soft-shadow: 0 9px 24px rgba(59, 35, 86, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --container: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 6% 12%, rgba(191,168,216,.18), transparent 28%),
+        linear-gradient(180deg, #fff 0%, #fdfafd 100%);
+      overflow-x: hidden;
+    }
+
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .announcement {
+      background: var(--plum-dark);
+      color: #fff;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,253,251,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(75,46,131,.08);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand {
+      direction: ltr;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+      color: var(--plum-dark);
+    }
+
+    .brand-main {
+      font-family: "Playfair Display", serif;
+      font-size: 31px;
+      letter-spacing: .11em;
+    }
+
+    .brand-sub {
+      font-size: 8px;
+      letter-spacing: .45em;
+      margin-top: 7px;
+      padding-left: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 27px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 30px 0 27px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 19px;
+      height: 1px;
+      background: var(--plum);
+      transform: scaleX(0);
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-actions {
+      direction: ltr;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--plum-dark);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .icon-button svg { width: 21px; height: 21px; stroke-width: 1.65; }
+    .cart-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: var(--plum);
+      color: #fff;
+      font-size: 9px;
+    }
+
+    .menu-button { display: none; }
+
+    .hero-wrap { padding: 24px 0 0; }
+
+    .hero {
+      min-height: 650px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      display: grid;
+      grid-template-columns: .86fr 1.35fr;
+      align-items: stretch;
+      background: #f8f2f2;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,253,251,.99) 0%, rgba(255,253,251,.96) 35%, rgba(255,253,251,.15) 69%),
+        linear-gradient(180deg, transparent 68%, rgba(49,28,67,.12));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-image {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1800&q=88");
+      background-size: cover;
+      background-position: 68% center;
+      transform: scale(1.01);
+    }
+
+    .hero-content {
+      grid-column: 1;
+      grid-row: 1;
+      z-index: 2;
+      align-self: center;
+      padding: 72px 30px 90px 64px;
+      direction: rtl;
+    }
+
+    .eyebrow {
+      direction: ltr;
+      font-size: 12px;
+      letter-spacing: .21em;
+      color: var(--plum);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      direction: ltr;
+      text-align: left;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 500;
+      line-height: .97;
+      color: var(--plum-dark);
+      letter-spacing: -.035em;
+    }
+
+    .hero-copy {
+      margin: 28px 0 30px;
+      max-width: 390px;
+      font-weight: 300;
+      line-height: 2;
+      color: #4b4351;
+      font-size: 16px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      min-height: 49px;
+      padding: 0 24px;
+      border: 1px solid var(--plum);
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      font-size: 13px;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--soft-shadow); }
+    .btn-primary { background: var(--plum); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,.7); color: var(--plum); }
+
+    .benefits {
+      position: relative;
+      z-index: 5;
+      width: min(calc(100% - 90px), 1040px);
+      margin: -70px auto 0;
+      padding: 27px 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(255,255,255,.93);
+      border: 1px solid rgba(75,46,131,.08);
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .benefit {
+      min-height: 118px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      text-align: right;
+    }
+
+    .benefit + .benefit { border-right: 1px solid var(--line); }
+
+    .circle-icon {
+      width: 61px;
+      height: 61px;
+      flex: 0 0 61px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--plum);
+      background: linear-gradient(145deg, #fff, #f8f4fb);
+      border: 1px solid rgba(75,46,131,.09);
+      box-shadow: 0 9px 24px rgba(64,39,91,.09);
+      transition: .25s ease;
+    }
+
+    .benefit:hover .circle-icon,
+    .service-item:hover .circle-icon {
+      background: var(--plum);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .circle-icon svg { width: 27px; height: 27px; stroke-width: 1.55; }
+
+    .benefit strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .benefit span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .section { padding: 100px 0 0; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading-center {
+      text-align: center;
+      display: block;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      color: var(--plum);
+      font-size: 11px;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      font-size: clamp(29px, 3.7vw, 44px);
+      font-weight: 500;
+      color: var(--plum-dark);
+    }
+
+    .view-all {
+      color: var(--plum);
+      font-size: 13px;
+      border-bottom: 1px solid rgba(75,46,131,.35);
+      padding-bottom: 4px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 22px;
+    }
+
+    .category {
+      text-align: center;
+      transition: transform .25s ease;
+    }
+
+    .category:hover { transform: translateY(-6px); }
+
+    .category-image {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--lavender-light);
+      box-shadow: var(--soft-shadow);
+      border: 7px solid #fff;
+    }
+
+    .category-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .category:hover img { transform: scale(1.06); }
+
+    .category h3 {
+      font-size: 13px;
+      font-weight: 500;
+      margin: 15px 0 4px;
+    }
+
+    .category span { font-size: 11px; color: var(--muted); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid rgba(75,46,131,.08);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .28s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-media {
+      aspect-ratio: .87;
+      position: relative;
+      overflow: hidden;
+      background: #f3edf2;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+    }
+
+    .product-card:hover .product-media img { transform: scale(1.04); }
+
+    .wish-button {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      width: 35px;
+      height: 35px;
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.88);
+      color: var(--plum);
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .wish-button.active { background: var(--plum); color: #fff; }
+    .wish-button svg { width: 18px; height: 18px; }
+
+    .product-info {
+      padding: 17px 17px 19px;
+      text-align: center;
+    }
+
+    .product-name {
+      font-family: "Playfair Display", serif;
+      direction: ltr;
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
+
+    .product-price { color: var(--plum); font-size: 12px; }
+
+    .custom-panel {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      min-height: 470px;
+      background: linear-gradient(120deg, #f5eced, #fbf8fc);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .custom-image {
+      min-height: 470px;
+      background:
+        url("https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1100&q=88") center/cover;
+    }
+
+    .custom-copy {
+      align-self: center;
+      padding: 65px;
+    }
+
+    .custom-copy h2 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--plum-dark);
+      line-height: 1.3;
+    }
+
+    .custom-copy p {
+      color: var(--muted);
+      line-height: 2.1;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .service-list {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 22px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12px;
+    }
+
+    .service-item .circle-icon {
+      width: 45px;
+      height: 45px;
+      flex-basis: 45px;
+    }
+
+    .service-item .circle-icon svg { width: 21px; height: 21px; }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .article {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(75,46,131,.08);
+    }
+
+    .article img { width: 100%; aspect-ratio: 1.38; object-fit: cover; }
+    .article-content { padding: 20px 21px 24px; }
+    .article small { color: var(--plum); }
+    .article h3 { margin: 10px 0 9px; font-size: 16px; font-weight: 500; }
+    .article p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+
+    .newsletter {
+      margin-top: 100px;
+      padding: 66px 20px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(191,168,216,.22), transparent 30%),
+        linear-gradient(110deg, #fbf8fc, #f0e8f7);
+    }
+
+    .newsletter h2 {
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      color: var(--plum-dark);
+      font-size: 34px;
+      margin: 0 0 9px;
+    }
+
+    .newsletter p { color: var(--muted); font-size: 13px; }
+
+    .newsletter-form {
+      direction: ltr;
+      width: min(100%, 480px);
+      display: flex;
+      margin: 27px auto 0;
+      background: #fff;
+      border: 1px solid rgba(75,46,131,.12);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 0 16px;
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .newsletter-form button {
+      border: 0;
+      background: var(--plum);
+      color: #fff;
+      padding: 13px 23px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--plum-dark);
+      color: rgba(255,255,255,.84);
+      padding: 64px 0 26px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(3, 1fr);
+      gap: 52px;
+    }
+
+    .footer-brand .brand { color: #fff; }
+    .footer-brand p {
+      max-width: 280px;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      line-height: 2;
+      margin-top: 22px;
+    }
+
+    .footer-column h4 { color: #fff; margin: 0 0 20px; font-size: 13px; }
+    .footer-column a, .footer-column span {
+      display: block;
+      color: rgba(255,255,255,.61);
+      font-size: 12px;
+      margin: 11px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 45px;
+      padding-top: 22px;
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,16,39,.45);
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s ease;
+    }
+
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+
+    .mobile-menu-panel {
+      width: min(84vw, 350px);
+      height: 100%;
+      margin-right: auto;
+      padding: 30px;
+      background: #fff;
+      transform: translateX(-100%);
+      transition: .3s ease;
+    }
+
+    .mobile-menu.open .mobile-menu-panel { transform: translateX(0); }
+
+    .mobile-menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 35px;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toast {
+      position: fixed;
+      right: 50%;
+      bottom: 30px;
+      transform: translate(50%, 25px);
+      z-index: 120;
+      background: var(--plum-dark);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .toast.show { opacity: 1; transform: translate(50%, 0); }
+
+    @media (max-width: 1050px) {
+      .nav-links { display: none; }
+      .menu-button { display: grid; }
+      .nav { grid-template-columns: auto 1fr auto; }
+      .brand { justify-self: center; }
+      .hero { min-height: 610px; }
+      .hero-content { padding-left: 38px; }
+      .benefits { width: calc(100% - 55px); }
+      .benefit { flex-direction: column; text-align: center; }
+      .categories { grid-template-columns: repeat(3, 1fr); row-gap: 35px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(calc(100% - 24px), var(--container)); }
+      .announcement { font-size: 10px; }
+      .nav { min-height: 67px; gap: 8px; }
+      .brand-main { font-size: 24px; }
+      .brand-sub { font-size: 6px; }
+      .nav-actions { gap: 3px; }
+      .nav-actions .account-button { display: none; }
+      .icon-button { width: 34px; height: 34px; }
+      .hero-wrap { padding-top: 12px; }
+      .hero {
+        min-height: 690px;
+        display: block;
+        border-radius: 24px;
+        background: #f8f2f2;
+      }
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255,253,251,.05) 0%, rgba(255,253,251,.05) 42%, rgba(255,253,251,.98) 58%, #fff 100%);
+      }
+      .hero-image {
+        height: 390px;
+        background-position: 61% center;
+      }
+      .hero-content {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 20px;
+        padding: 30px 24px;
+        text-align: center;
+      }
+      .eyebrow { text-align: center; font-size: 10px; }
+      h1 { text-align: center; font-size: 47px; line-height: 1.02; }
+      .hero-copy { margin: 18px auto 22px; font-size: 13px; line-height: 1.9; }
+      .hero-actions { justify-content: center; }
+      .btn { min-height: 46px; padding-inline: 18px; font-size: 11px; }
+      .benefits {
+        width: calc(100% - 24px);
+        margin-top: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px;
+        border-radius: 20px;
+      }
+      .benefit { min-height: 145px; padding: 15px 8px; }
+      .benefit + .benefit { border-right: 0; }
+      .benefit:nth-child(even) { border-right: 1px solid var(--line); }
+      .benefit:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .circle-icon { width: 54px; height: 54px; flex-basis: 54px; }
+      .section { padding-top: 76px; }
+      .section-heading { align-items: center; margin-bottom: 25px; }
+      .section-title { font-size: 29px; }
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 10px;
+      }
+      .category-image { border-width: 4px; }
+      .category h3 { font-size: 11px; margin-top: 9px; }
+      .category span { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-info { padding: 13px 8px 15px; }
+      .product-name { font-size: 15px; }
+      .product-price { font-size: 10px; }
+      .custom-panel { grid-template-columns: 1fr; }
+      .custom-image { min-height: 340px; }
+      .custom-copy { padding: 38px 25px 44px; }
+      .custom-copy h2 { font-size: 34px; }
+      .service-list { gap: 15px 10px; }
+      .service-item { font-size: 10px; }
+      .journal-grid { grid-template-columns: 1fr; }
+      .newsletter { margin-top: 75px; }
+      .newsletter h2 { font-size: 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 35px 25px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 390px) {
+      .nav-actions .heart-button { display: none; }
+      h1 { font-size: 42px; }
+      .hero-actions .btn { width: 100%; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .service-list { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Standalone logged-in profile page ===== */
+    .account-page {
+      padding: 48px 0 100px;
+    }
+
+    .account-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .account-heading .section-title {
+      margin-bottom: 10px;
+    }
+
+    .account-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .account-layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .account-sidebar {
+      position: sticky;
+      top: 116px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(75,46,131,.09);
+      border-radius: 22px;
+      box-shadow: var(--soft-shadow);
+      padding: 17px;
+    }
+
+    .account-user {
+      padding: 18px 13px 22px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 10px;
+    }
+
+    .account-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--plum);
+      background: var(--ivory);
+      margin-bottom: 13px;
+    }
+
+    .account-avatar svg {
+      width: 27px;
+      height: 27px;
+      stroke-width: 1.6;
+    }
+
+    .account-user strong {
+      display: block;
+      color: var(--plum-dark);
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .account-user span {
+      color: var(--muted);
+      font-size: 11px;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .account-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .account-nav button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 12px 13px;
+      border-radius: 11px;
+      cursor: pointer;
+      text-align: right;
+      transition: .2s ease;
+    }
+
+    .account-nav button svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+      stroke-width: 1.55;
+    }
+
+    .account-nav button:hover,
+    .account-nav button.active {
+      color: var(--plum-dark);
+      background: var(--ivory);
+    }
+
+    .account-nav .logout {
+      color: #a3485a;
+      margin-top: 5px;
+      border-top: 1px solid var(--line);
+      border-radius: 0 0 11px 11px;
+      padding-top: 17px;
+    }
+
+    .account-content {
+      min-height: 620px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(75,46,131,.09);
+      border-radius: 24px;
+      box-shadow: var(--soft-shadow);
+      padding: 30px;
+    }
+
+    .account-pane {
+      display: none;
+    }
+
+    .account-pane.active {
+      display: block;
+      animation: accountFade .22s ease;
+    }
+
+    @keyframes accountFade {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pane-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .pane-heading h2 {
+      margin: 0;
+      color: var(--plum-dark);
+      font-size: 23px;
+      font-weight: 500;
+    }
+
+    .welcome-panel {
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 45px 20px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(191,168,216,.23), transparent 32%),
+        linear-gradient(135deg, #fff, var(--ivory));
+    }
+
+    .welcome-panel h2 {
+      margin: 0 0 16px;
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      color: var(--plum-dark);
+      font-size: clamp(31px, 4vw, 49px);
+      font-weight: 500;
+    }
+
+    .welcome-panel p {
+      max-width: 520px;
+      color: var(--muted);
+      line-height: 2.1;
+      margin: 0 auto;
+    }
+
+    .welcome-panel strong {
+      direction: ltr;
+      display: block;
+      margin-top: 22px;
+      color: var(--plum);
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .orders-tools {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .status-filter {
+      min-width: 190px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+      outline: 0;
+    }
+
+    .orders-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .orders-table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .orders-table th,
+    .orders-table td {
+      padding: 14px 11px;
+      border-bottom: 1px solid var(--line);
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .orders-table th {
+      color: var(--plum-dark);
+      background: #fbf9fc;
+      font-weight: 500;
+    }
+
+    .orders-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .order-status {
+      display: inline-flex;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--ivory);
+      color: var(--plum);
+      font-size: 10px;
+    }
+
+    .table-button {
+      border: 1px solid var(--plum);
+      color: var(--plum);
+      background: #fff;
+      border-radius: 7px;
+      padding: 7px 9px;
+      cursor: pointer;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
+    .table-button.primary {
+      background: var(--plum);
+      color: #fff;
+    }
+
+    .empty-state {
+      padding: 70px 20px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: 14px;
+      line-height: 2;
+    }
+
+    .address-list,
+    .favorites-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .address-card,
+    .favorite-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .address-card header,
+    .favorite-card header {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 11px;
+    }
+
+    .address-card p,
+    .favorite-card p {
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .profile-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 17px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: var(--plum-dark);
+      font-size: 12px;
+    }
+
+    .form-field small {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 13px 14px;
+      outline: 0;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .form-field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .support-switch {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .support-switch button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 9px;
+      padding: 11px 15px;
+      cursor: pointer;
+    }
+
+    .support-switch button.active {
+      border-color: var(--plum);
+      background: var(--ivory);
+      color: var(--plum-dark);
+    }
+
+    .support-form {
+      display: none;
+    }
+
+    .support-form.active {
+      display: grid;
+    }
+
+    .ticket-thread {
+      margin-top: 26px;
+      border-top: 1px solid var(--line);
+      padding-top: 23px;
+    }
+
+    .ticket-message {
+      max-width: 80%;
+      padding: 14px 16px;
+      border-radius: 15px;
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .ticket-message.user {
+      margin-right: auto;
+      background: var(--ivory);
+    }
+
+    .ticket-message.admin {
+      margin-left: auto;
+      background: #f7f6f8;
+    }
+
+    @media (max-width: 920px) {
+      .account-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .account-sidebar {
+        position: static;
+      }
+
+      .account-nav {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .account-nav .logout {
+        border-top: 0;
+        margin-top: 0;
+        padding-top: 12px;
+        border-radius: 11px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .account-page {
+        padding-top: 28px;
+      }
+
+      .account-content {
+        padding: 20px 15px;
+      }
+
+      .account-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-form {
+        grid-template-columns: 1fr;
+      }
+
+      .form-field.full {
+        grid-column: auto;
+      }
+
+      .pane-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .orders-tools {
+        justify-content: stretch;
+      }
+
+      .status-filter {
+        width: 100%;
+      }
+    }
+
+
+    /* ===== Responsive edit profile page ===== */
+    .profile-intro {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .profile-complete-form {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: linear-gradient(135deg,#fff,#fbf9fc);
+    }
+
+    .phone-field-wrap {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .phone-field-wrap input {
+      min-width: 0;
+    }
+
+    .verify-phone {
+      min-height: 45px;
+      white-space: nowrap;
+    }
+
+    .profile-progress {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .profile-progress-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--ivory);
+      overflow: hidden;
+      margin-bottom: 9px;
+    }
+
+    .profile-progress-bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg,var(--lavender),var(--plum));
+    }
+
+    .profile-note {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--ivory);
+      color: var(--muted);
+    }
+
+    .profile-note .circle-icon {
+      width: 44px;
+      height: 44px;
+      flex-basis: 44px;
+      box-shadow: none;
+    }
+
+    .profile-note .circle-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .profile-note p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .profile-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width: 720px) {
+      .profile-complete-form {
+        grid-template-columns: 1fr;
+        padding: 17px;
+      }
+
+      .profile-complete-form .full {
+        grid-column: auto;
+      }
+
+      .phone-field-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .verify-phone {
+        width: 100%;
+      }
+
+      .profile-note {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .profile-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .profile-actions .btn {
+        width: 100%;
+      }
+
+      .profile-note {
+        flex-direction: column;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="announcement">ارسال همان‌روز در تهران برای سفارش‌های ثبت‌شده تا ساعت ۱۴</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <button class="icon-button menu-button" id="menuOpen" aria-label="باز کردن منو">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <a class="brand" href="#">
+        <span class="brand-main">LUNA</span>
+        <span class="brand-sub">FLORALE</span>
+      </a>
+
+      <nav class="nav-links" aria-label="منوی اصلی">
+        <a class="active" href="#">صفحه اصلی</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#categories">مناسبت‌ها</a>
+        <a href="#custom">سفارش اختصاصی</a>
+        <a href="#journal">مجله</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button" aria-label="جستجو">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </button>
+        <button class="icon-button account-button" aria-label="حساب کاربری">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
+        </button>
+        <button class="icon-button heart-button" aria-label="علاقه‌مندی‌ها">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        </button>
+        <button class="icon-button" aria-label="سبد خرید">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+          <span class="cart-count">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  
+  <main class="account-page">
+    <div class="container">
+      <div class="account-heading">
+        <div class="section-kicker">LUNA FLORALE ACCOUNT</div>
+        <h1 class="section-title">ویرایش و تکمیل پروفایل</h1>
+        <p>مدیریت اطلاعات شخصی و تکمیل حساب کاربری</p>
+      </div>
+
+      <div class="account-layout">
+        <aside class="account-sidebar">
+          <div class="account-user">
+            <div class="account-avatar">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
+              </svg>
+            </div>
+            <strong>کاربر لونا</strong>
+            <span>09120000000</span>
+          </div>
+
+          <nav class="account-nav">
+            <button data-account-pane="dashboard-pane">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+              داشبورد اصلی
+            </button>
+            <button data-account-pane="orders-pane">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h4"/></svg>
+              سفارش‌های من
+            </button>
+            <button data-account-pane="addresses-pane">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2"/></svg>
+              آدرس‌های من
+            </button>
+            <button data-account-pane="favorites-pane">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              علاقه‌مندی‌ها
+            </button>
+            <button class="active" data-account-pane="edit-pane">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m4 20 4.5-1 10-10a2 2 0 0 0-3-3l-10 10L4 20ZM14 7l3 3"/></svg>
+              ویرایش و تکمیل پروفایل
+            </button>
+            <button data-account-pane="support-pane">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4V5Z"/><path d="M8 9h8M8 13h5"/></svg>
+              پشتیبانی سفارش
+            </button>
+            <button class="logout" id="profileLogout">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 17l5-5-5-5M15 12H3M14 3h6v18h-6"/></svg>
+              خروج از حساب کاربری
+            </button>
+          </nav>
+        </aside>
+
+        <section class="account-content">
+          <div class="account-pane" id="dashboard-pane">
+            <div class="welcome-panel">
+              <div>
+                <h2>به دنیای لونا خوش آمدید</h2>
+                <p>اینجا هر گل با ظرافت و احساس برای ساختن یک خاطره به‌یادماندنی طراحی می‌شود.</p>
+                <strong>Flowers Designed to Be Remembered</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="account-pane" id="orders-pane">
+            <div class="pane-heading">
+              <h2>سفارش‌های من</h2>
+            </div>
+            <div class="orders-tools">
+              <select class="status-filter">
+                <option>همه وضعیت‌ها</option>
+                <option>ثبت‌شده</option>
+                <option>تأییدشده</option>
+                <option>در حال آماده‌سازی</option>
+                <option>ارسال‌شده</option>
+                <option>تحویل‌شده</option>
+                <option>لغوشده</option>
+                <option>وجه عودت‌شده</option>
+              </select>
+            </div>
+
+            <div class="orders-table-wrap">
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th>شماره سفارش</th>
+                    <th>تاریخ ثبت</th>
+                    <th>مبلغ</th>
+                    <th>وضعیت</th>
+                    <th>جزئیات</th>
+                    <th>سفارش مجدد</th>
+                    <th>پیگیری سفارش</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#LF-1024</td>
+                    <td>۱۴۰۵/۰۴/۲۴</td>
+                    <td>۲,۸۵۰,۰۰۰ تومان</td>
+                    <td><span class="order-status">در حال آماده‌سازی</span></td>
+                    <td><button class="table-button">مشاهده جزئیات</button></td>
+                    <td><button class="table-button">سفارش مجدد</button></td>
+                    <td><button class="table-button primary track-order" data-order="LF-1024">پیگیری سفارش</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="empty-state" id="emptyOrders" style="display:none;">
+              هنوز سفارشی ثبت نکرده‌اید.
+            </div>
+          </div>
+
+          <div class="account-pane" id="addresses-pane">
+            <div class="pane-heading">
+              <h2>آدرس‌های من</h2>
+              <button class="btn btn-primary" type="button">افزودن آدرس جدید</button>
+            </div>
+
+            <div class="address-list">
+              <article class="address-card">
+                <header>
+                  <strong>آدرس پیش‌فرض</strong>
+                  <span class="order-status">پیش‌فرض</span>
+                </header>
+                <p>تهران، نیاوران، اطلس مال</p>
+                <p>تحویل‌گیرنده: کاربر لونا · 09120000000</p>
+                <div class="hero-actions">
+                  <button class="table-button" type="button">ویرایش</button>
+                  <button class="table-button" type="button">حذف</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="account-pane" id="favorites-pane">
+            <div class="pane-heading">
+              <h2>علاقه‌مندی‌ها</h2>
+            </div>
+
+            <div class="favorites-list">
+              <article class="favorite-card">
+                <header>
+                  <strong>Luna Signature</strong>
+                  <span class="product-price">۲,۸۵۰,۰۰۰ تومان</span>
+                </header>
+                <p>محصولات ذخیره‌شده شما در این بخش قابل مشاهده هستند.</p>
+                <div class="hero-actions">
+                  <button class="table-button primary" type="button">افزودن به سبد خرید</button>
+                  <button class="table-button" type="button">حذف از علاقه‌مندی‌ها</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+
+          <div class="account-pane active" id="edit-pane">
+            <div class="pane-heading">
+              <div>
+                <h2>ویرایش و تکمیل پروفایل</h2>
+                <p class="profile-intro">اطلاعات حساب خود را تکمیل کنید تا ثبت سفارش و پیگیری آن سریع‌تر انجام شود.</p>
+              </div>
+            </div>
+
+            <form class="profile-form profile-complete-form" id="standaloneProfileForm">
+              <div class="form-field">
+                <label>نام و نام خانوادگی</label>
+                <input type="text" placeholder="نام و نام خانوادگی" autocomplete="name">
+              </div>
+
+              <div class="form-field">
+                <label>نام کاربری</label>
+                <input type="text" placeholder="نام کاربری" autocomplete="username">
+              </div>
+
+              <div class="form-field">
+                <label>شماره موبایل</label>
+                <div class="phone-field-wrap">
+                  <input type="tel" value="09120000000" inputmode="numeric" autocomplete="tel">
+                  <button class="table-button verify-phone" type="button">تأیید مجدد</button>
+                </div>
+                <small>تغییر شماره موبایل نیازمند دریافت کد تأیید است.</small>
+              </div>
+
+              <div class="form-field">
+                <label>ایمیل <small>اختیاری</small></label>
+                <input type="email" placeholder="example@email.com" autocomplete="email">
+              </div>
+
+              <div class="form-field">
+                <label>تاریخ تولد <small>اختیاری</small></label>
+                <input type="date">
+              </div>
+
+              <div class="form-field">
+                <label>وضعیت تکمیل پروفایل</label>
+                <div class="profile-progress">
+                  <div class="profile-progress-bar"><span style="width:60%"></span></div>
+                  <small>۶۰٪ تکمیل شده</small>
+                </div>
+              </div>
+
+              <div class="profile-note full">
+                <div class="circle-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 8v5M12 16h.01"/>
+                  </svg>
+                </div>
+                <p>ایمیل و تاریخ تولد اختیاری هستند. اطلاعات شما فقط برای بهبود تجربه سفارش و ارتباط با حساب کاربری استفاده می‌شود.</p>
+              </div>
+
+              <div class="profile-actions full">
+                <button class="btn btn-primary" type="submit">ذخیره تغییرات</button>
+                <button class="btn btn-secondary reset-profile" type="reset">پاک‌کردن تغییرات</button>
+              </div>
+            </form>
+          </div>
+
+
+          <div class="account-pane" id="support-pane">
+            <div class="pane-heading">
+              <h2>پشتیبانی سفارش</h2>
+            </div>
+
+            <div class="support-switch">
+              <button class="active" type="button" data-support="order-support">پیگیری سفارش</button>
+              <button type="button" data-support="stock-support">استعلام موجودی</button>
+            </div>
+
+            <form class="profile-form support-form active" id="order-support">
+              <div class="form-field full">
+                <label>شماره سفارش</label>
+                <input id="standaloneOrderNumber" type="text" placeholder="مثلاً LF-1024">
+              </div>
+              <div class="form-field full">
+                <label>متن پیام</label>
+                <textarea placeholder="پیام خود را برای پشتیبانی بنویسید"></textarea>
+              </div>
+              <div class="form-field full">
+                <button class="btn btn-primary" type="submit">ارسال پیام</button>
+              </div>
+            </form>
+
+            <form class="profile-form support-form" id="stock-support">
+              <div class="form-field full">
+                <label>کد محصول موردنظر</label>
+                <input type="text" placeholder="کد محصول">
+              </div>
+              <div class="form-field full">
+                <label>متن پیام</label>
+                <textarea placeholder="درخواست استعلام موجودی را بنویسید"></textarea>
+              </div>
+              <div class="form-field full">
+                <button class="btn btn-primary" type="submit">ارسال پیام</button>
+              </div>
+            </form>
+
+            <div class="ticket-thread">
+              <div class="ticket-message user">سلام، سفارش LF-1024 در چه مرحله‌ای قرار دارد؟</div>
+              <div class="ticket-message admin">سلام، سفارش شما در حال آماده‌سازی است و پس از ارسال وضعیت آن به‌روزرسانی خواهد شد.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#">
+            <span class="brand-main">LUNA</span>
+            <span class="brand-sub">FLORALE</span>
+          </a>
+          <p>طراحی و ارائه دسته‌گل‌های لوکس برای لحظه‌هایی که باید به‌یادماندنی باشند.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>فروشگاه</h4>
+          <a href="#">همه محصولات</a>
+          <a href="#">دسته‌گل‌ها</a>
+          <a href="#">کالکشن لاکچری</a>
+          <a href="#">پرفروش‌ها</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>خدمات مشتریان</h4>
+          <a href="#">سؤالات متداول</a>
+          <a href="LunaFlorale_PaymentMethods.html">روش‌های پرداخت</a>
+          <a href="LunaFlorale_ShippingConditions.html">شرایط ارسال</a>
+          <a href="#">پیگیری سفارش</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>اطلاعات تماس</h4>
+          <span>۰۹۱۲ ۰۰۰ ۰۰۰۰</span>
+          <span>@luna.florale</span>
+          <span>تهران، اطلس مال</span>
+          <span>همه‌روزه ۱۰ تا ۲۲</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Luna Florale. All rights reserved.</span>
+        <span>Luxury Flowers · Tehran</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-head">
+        <a class="brand" href="#"><span class="brand-main">LUNA</span><span class="brand-sub">FLORALE</span></a>
+        <button class="icon-button" id="menuClose" aria-label="بستن منو">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#">صفحه اصلی</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#categories">مناسبت‌ها</a>
+        <a href="#custom">سفارش اختصاصی</a>
+        <a href="#journal">مجله</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">با موفقیت انجام شد</div>
+
+  <script>
+    const mobileMenu = document.getElementById("mobileMenu");
+    const openBtn = document.getElementById("menuOpen");
+    const closeBtn = document.getElementById("menuClose");
+    const toast = document.getElementById("toast");
+
+    function openMenu() {
+      mobileMenu.classList.add("open");
+      document.body.classList.add("menu-open");
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+
+    openBtn.addEventListener("click", openMenu);
+    closeBtn.addEventListener("click", closeMenu);
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target === mobileMenu) closeMenu();
+    });
+
+    document.querySelectorAll(".mobile-menu-links a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.querySelectorAll(".wish-button").forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        showToast(button.classList.contains("active")
+          ? "به علاقه‌مندی‌ها اضافه شد"
+          : "از علاقه‌مندی‌ها حذف شد");
+      });
+    });
+
+    document.getElementById("newsletterForm").addEventListener("submit", event => {
+      event.preventDefault();
+      event.target.reset();
+      showToast("عضویت شما با موفقیت ثبت شد");
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    // Standalone profile page
+    document.querySelectorAll(".account-nav button[data-account-pane]").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".account-nav button[data-account-pane]").forEach(item => item.classList.remove("active"));
+        document.querySelectorAll(".account-pane").forEach(pane => pane.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.accountPane).classList.add("active");
+      });
+    });
+
+    document.querySelectorAll(".support-switch button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".support-switch button").forEach(item => item.classList.remove("active"));
+        document.querySelectorAll(".support-form").forEach(form => form.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(button.dataset.support).classList.add("active");
+      });
+    });
+
+    document.querySelectorAll(".track-order").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".account-nav button[data-account-pane]").forEach(item => item.classList.remove("active"));
+        document.querySelectorAll(".account-pane").forEach(pane => pane.classList.remove("active"));
+        const supportButton = document.querySelector('[data-account-pane="support-pane"]');
+        supportButton.classList.add("active");
+        document.getElementById("support-pane").classList.add("active");
+        document.getElementById("standaloneOrderNumber").value = button.dataset.order;
+      });
+    });
+
+    document.getElementById("standaloneProfileForm").addEventListener("submit", event => {
+      event.preventDefault();
+      showToast("اطلاعات پروفایل ذخیره شد");
+    });
+
+    document.querySelectorAll(".support-form").forEach(form => {
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        showToast("پیام شما برای پشتیبانی ارسال شد");
+      });
+    });
+
+    document.getElementById("profileLogout").addEventListener("click", () => {
+      showToast("از حساب کاربری خارج شدید");
+    });
+
+
+    // Edit profile page
+    document.querySelector(".verify-phone").addEventListener("click", () => {
+      showToast("کد تأیید برای شماره موبایل ارسال شد");
+    });
+
+    document.getElementById("standaloneProfileForm").addEventListener("submit", event => {
+      event.preventDefault();
+      showToast("اطلاعات پروفایل با موفقیت ذخیره شد");
+    });
+
+    document.querySelector(".reset-profile").addEventListener("click", () => {
+      setTimeout(() => showToast("تغییرات فرم پاک شد"), 0);
+    });
+
+  </script>
+</body>
+</html>
+

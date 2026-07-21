@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Luna Florale - Luxury flower boutique" />
+  <title>Luna Florale | گل‌هایی برای به‌یادماندن</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #F5F0FA;
+      --paper: #FFFDFB;
+      --white: #FFFFFF;
+      --plum: #4B2E83;
+      --plum-dark: #2D174F;
+      --lavender: #BFA8D8;
+      --lavender-light: #EEE7F5;
+      --ink: #251D2D;
+      --muted: #756D7B;
+      --line: rgba(75, 46, 131, 0.13);
+      --shadow: 0 18px 55px rgba(59, 35, 86, 0.10);
+      --soft-shadow: 0 9px 24px rgba(59, 35, 86, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --container: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 6% 12%, rgba(191,168,216,.18), transparent 28%),
+        linear-gradient(180deg, #fff 0%, #fdfafd 100%);
+      overflow-x: hidden;
+    }
+
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .announcement {
+      background: var(--plum-dark);
+      color: #fff;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,253,251,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(75,46,131,.08);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .brand {
+      direction: ltr;
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1;
+      color: var(--plum-dark);
+    }
+
+    .brand-main {
+      font-family: "Playfair Display", serif;
+      font-size: 31px;
+      letter-spacing: .11em;
+    }
+
+    .brand-sub {
+      font-size: 8px;
+      letter-spacing: .45em;
+      margin-top: 7px;
+      padding-left: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 27px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 30px 0 27px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 19px;
+      height: 1px;
+      background: var(--plum);
+      transform: scaleX(0);
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-actions {
+      direction: ltr;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--plum-dark);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .icon-button svg { width: 21px; height: 21px; stroke-width: 1.65; }
+    .cart-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 17px;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: var(--plum);
+      color: #fff;
+      font-size: 9px;
+    }
+
+    .menu-button { display: none; }
+
+    .hero-wrap { padding: 24px 0 0; }
+
+    .hero {
+      min-height: 650px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      display: grid;
+      grid-template-columns: .86fr 1.35fr;
+      align-items: stretch;
+      background: #f8f2f2;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,253,251,.99) 0%, rgba(255,253,251,.96) 35%, rgba(255,253,251,.15) 69%),
+        linear-gradient(180deg, transparent 68%, rgba(49,28,67,.12));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-image {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1800&q=88");
+      background-size: cover;
+      background-position: 68% center;
+      transform: scale(1.01);
+    }
+
+    .hero-content {
+      grid-column: 1;
+      grid-row: 1;
+      z-index: 2;
+      align-self: center;
+      padding: 72px 30px 90px 64px;
+      direction: rtl;
+    }
+
+    .eyebrow {
+      direction: ltr;
+      font-size: 12px;
+      letter-spacing: .21em;
+      color: var(--plum);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      direction: ltr;
+      text-align: left;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 500;
+      line-height: .97;
+      color: var(--plum-dark);
+      letter-spacing: -.035em;
+    }
+
+    .hero-copy {
+      margin: 28px 0 30px;
+      max-width: 390px;
+      font-weight: 300;
+      line-height: 2;
+      color: #4b4351;
+      font-size: 16px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      min-height: 49px;
+      padding: 0 24px;
+      border: 1px solid var(--plum);
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      font-size: 13px;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--soft-shadow); }
+    .btn-primary { background: var(--plum); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,.7); color: var(--plum); }
+
+    .benefits {
+      position: relative;
+      z-index: 5;
+      width: min(calc(100% - 90px), 1040px);
+      margin: -70px auto 0;
+      padding: 27px 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: rgba(255,255,255,.93);
+      border: 1px solid rgba(75,46,131,.08);
+      border-radius: 25px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .benefit {
+      min-height: 118px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      text-align: right;
+    }
+
+    .benefit + .benefit { border-right: 1px solid var(--line); }
+
+    .circle-icon {
+      width: 61px;
+      height: 61px;
+      flex: 0 0 61px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--plum);
+      background: linear-gradient(145deg, #fff, #f8f4fb);
+      border: 1px solid rgba(75,46,131,.09);
+      box-shadow: 0 9px 24px rgba(64,39,91,.09);
+      transition: .25s ease;
+    }
+
+    .benefit:hover .circle-icon,
+    .service-item:hover .circle-icon {
+      background: var(--plum);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .circle-icon svg { width: 27px; height: 27px; stroke-width: 1.55; }
+
+    .benefit strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .benefit span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .section { padding: 100px 0 0; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading-center {
+      text-align: center;
+      display: block;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      color: var(--plum);
+      font-size: 11px;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      font-size: clamp(29px, 3.7vw, 44px);
+      font-weight: 500;
+      color: var(--plum-dark);
+    }
+
+    .view-all {
+      color: var(--plum);
+      font-size: 13px;
+      border-bottom: 1px solid rgba(75,46,131,.35);
+      padding-bottom: 4px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 22px;
+    }
+
+    .category {
+      text-align: center;
+      transition: transform .25s ease;
+    }
+
+    .category:hover { transform: translateY(-6px); }
+
+    .category-image {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--lavender-light);
+      box-shadow: var(--soft-shadow);
+      border: 7px solid #fff;
+    }
+
+    .category-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .category:hover img { transform: scale(1.06); }
+
+    .category h3 {
+      font-size: 13px;
+      font-weight: 500;
+      margin: 15px 0 4px;
+    }
+
+    .category span { font-size: 11px; color: var(--muted); }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid rgba(75,46,131,.08);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: .28s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-media {
+      aspect-ratio: .87;
+      position: relative;
+      overflow: hidden;
+      background: #f3edf2;
+    }
+
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+    }
+
+    .product-card:hover .product-media img { transform: scale(1.04); }
+
+    .wish-button {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      width: 35px;
+      height: 35px;
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.88);
+      color: var(--plum);
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .wish-button.active { background: var(--plum); color: #fff; }
+    .wish-button svg { width: 18px; height: 18px; }
+
+    .product-info {
+      padding: 17px 17px 19px;
+      text-align: center;
+    }
+
+    .product-name {
+      font-family: "Playfair Display", serif;
+      direction: ltr;
+      font-size: 18px;
+      margin: 0 0 8px;
+    }
+
+    .product-price { color: var(--plum); font-size: 12px; }
+
+    .custom-panel {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      min-height: 470px;
+      background: linear-gradient(120deg, #f5eced, #fbf8fc);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .custom-image {
+      min-height: 470px;
+      background:
+        url("https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=1100&q=88") center/cover;
+    }
+
+    .custom-copy {
+      align-self: center;
+      padding: 65px;
+    }
+
+    .custom-copy h2 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 500;
+      color: var(--plum-dark);
+      line-height: 1.3;
+    }
+
+    .custom-copy p {
+      color: var(--muted);
+      line-height: 2.1;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .service-list {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 22px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12px;
+    }
+
+    .service-item .circle-icon {
+      width: 45px;
+      height: 45px;
+      flex-basis: 45px;
+    }
+
+    .service-item .circle-icon svg { width: 21px; height: 21px; }
+
+    .journal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .article {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(75,46,131,.08);
+    }
+
+    .article img { width: 100%; aspect-ratio: 1.38; object-fit: cover; }
+    .article-content { padding: 20px 21px 24px; }
+    .article small { color: var(--plum); }
+    .article h3 { margin: 10px 0 9px; font-size: 16px; font-weight: 500; }
+    .article p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+
+    .newsletter {
+      margin-top: 100px;
+      padding: 66px 20px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 15% 50%, rgba(191,168,216,.22), transparent 30%),
+        linear-gradient(110deg, #fbf8fc, #f0e8f7);
+    }
+
+    .newsletter h2 {
+      font-family: "Playfair Display", "Vazirmatn", serif;
+      color: var(--plum-dark);
+      font-size: 34px;
+      margin: 0 0 9px;
+    }
+
+    .newsletter p { color: var(--muted); font-size: 13px; }
+
+    .newsletter-form {
+      direction: ltr;
+      width: min(100%, 480px);
+      display: flex;
+      margin: 27px auto 0;
+      background: #fff;
+      border: 1px solid rgba(75,46,131,.12);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      padding: 0 16px;
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .newsletter-form button {
+      border: 0;
+      background: var(--plum);
+      color: #fff;
+      padding: 13px 23px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--plum-dark);
+      color: rgba(255,255,255,.84);
+      padding: 64px 0 26px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(3, 1fr);
+      gap: 52px;
+    }
+
+    .footer-brand .brand { color: #fff; }
+    .footer-brand p {
+      max-width: 280px;
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      line-height: 2;
+      margin-top: 22px;
+    }
+
+    .footer-column h4 { color: #fff; margin: 0 0 20px; font-size: 13px; }
+    .footer-column a, .footer-column span {
+      display: block;
+      color: rgba(255,255,255,.61);
+      font-size: 12px;
+      margin: 11px 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 45px;
+      padding-top: 22px;
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,16,39,.45);
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s ease;
+    }
+
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+
+    .mobile-menu-panel {
+      width: min(84vw, 350px);
+      height: 100%;
+      margin-right: auto;
+      padding: 30px;
+      background: #fff;
+      transform: translateX(-100%);
+      transition: .3s ease;
+    }
+
+    .mobile-menu.open .mobile-menu-panel { transform: translateX(0); }
+
+    .mobile-menu-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 35px;
+    }
+
+    .mobile-menu-links a {
+      display: block;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toast {
+      position: fixed;
+      right: 50%;
+      bottom: 30px;
+      transform: translate(50%, 25px);
+      z-index: 120;
+      background: var(--plum-dark);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .toast.show { opacity: 1; transform: translate(50%, 0); }
+
+    @media (max-width: 1050px) {
+      .nav-links { display: none; }
+      .menu-button { display: grid; }
+      .nav { grid-template-columns: auto 1fr auto; }
+      .brand { justify-self: center; }
+      .hero { min-height: 610px; }
+      .hero-content { padding-left: 38px; }
+      .benefits { width: calc(100% - 55px); }
+      .benefit { flex-direction: column; text-align: center; }
+      .categories { grid-template-columns: repeat(3, 1fr); row-gap: 35px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(calc(100% - 24px), var(--container)); }
+      .announcement { font-size: 10px; }
+      .nav { min-height: 67px; gap: 8px; }
+      .brand-main { font-size: 24px; }
+      .brand-sub { font-size: 6px; }
+      .nav-actions { gap: 3px; }
+      .nav-actions .account-button { display: none; }
+      .icon-button { width: 34px; height: 34px; }
+      .hero-wrap { padding-top: 12px; }
+      .hero {
+        min-height: 690px;
+        display: block;
+        border-radius: 24px;
+        background: #f8f2f2;
+      }
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255,253,251,.05) 0%, rgba(255,253,251,.05) 42%, rgba(255,253,251,.98) 58%, #fff 100%);
+      }
+      .hero-image {
+        height: 390px;
+        background-position: 61% center;
+      }
+      .hero-content {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 20px;
+        padding: 30px 24px;
+        text-align: center;
+      }
+      .eyebrow { text-align: center; font-size: 10px; }
+      h1 { text-align: center; font-size: 47px; line-height: 1.02; }
+      .hero-copy { margin: 18px auto 22px; font-size: 13px; line-height: 1.9; }
+      .hero-actions { justify-content: center; }
+      .btn { min-height: 46px; padding-inline: 18px; font-size: 11px; }
+      .benefits {
+        width: calc(100% - 24px);
+        margin-top: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px;
+        border-radius: 20px;
+      }
+      .benefit { min-height: 145px; padding: 15px 8px; }
+      .benefit + .benefit { border-right: 0; }
+      .benefit:nth-child(even) { border-right: 1px solid var(--line); }
+      .benefit:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .circle-icon { width: 54px; height: 54px; flex-basis: 54px; }
+      .section { padding-top: 76px; }
+      .section-heading { align-items: center; margin-bottom: 25px; }
+      .section-title { font-size: 29px; }
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 10px;
+      }
+      .category-image { border-width: 4px; }
+      .category h3 { font-size: 11px; margin-top: 9px; }
+      .category span { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-info { padding: 13px 8px 15px; }
+      .product-name { font-size: 15px; }
+      .product-price { font-size: 10px; }
+      .custom-panel { grid-template-columns: 1fr; }
+      .custom-image { min-height: 340px; }
+      .custom-copy { padding: 38px 25px 44px; }
+      .custom-copy h2 { font-size: 34px; }
+      .service-list { gap: 15px 10px; }
+      .service-item { font-size: 10px; }
+      .journal-grid { grid-template-columns: 1fr; }
+      .newsletter { margin-top: 75px; }
+      .newsletter h2 { font-size: 28px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 35px 25px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 390px) {
+      .nav-actions .heart-button { display: none; }
+      h1 { font-size: 42px; }
+      .hero-actions .btn { width: 100%; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .service-list { grid-template-columns: 1fr; }
+    }
+
+    /* فقط امکانات آیکون‌های هدر */
+    .ui-layer{position:fixed;inset:0;z-index:120;background:rgba(28,16,39,.42);opacity:0;visibility:hidden;transition:.25s}
+    .ui-layer.open{opacity:1;visibility:visible}.ui-panel{position:absolute;top:0;bottom:0;left:0;width:min(94vw,470px);background:#fff;padding:28px;overflow:auto;transform:translateX(-100%);transition:.3s;box-shadow:var(--shadow)}
+    .ui-layer.open .ui-panel{transform:translateX(0)}.ui-panel.wide{width:min(100%,820px)}
+    .ui-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line)}.ui-head h2{margin:0;color:var(--plum-dark);font-size:24px;font-weight:500}
+    .ui-close{width:40px;height:40px;border:0;border-radius:50%;background:var(--ivory);color:var(--plum);display:grid;place-items:center;cursor:pointer}.ui-close svg{width:20px;height:20px}
+    .search-page{position:fixed;inset:0;z-index:125;background:rgba(255,253,251,.98);opacity:0;visibility:hidden;transition:.25s;overflow:auto}.search-page.open{opacity:1;visibility:visible}
+    .search-inner{width:min(calc(100% - 40px),920px);margin:auto;padding:36px 0 70px}.search-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+    .search-box{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:7px;box-shadow:var(--soft-shadow)}.search-box input{flex:1;min-width:0;border:0;outline:0;padding:14px;background:transparent}.search-box button{border:0;border-radius:9px;background:var(--plum);color:#fff;padding:0 22px;cursor:pointer}
+    .chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 34px}.chip{border:1px solid var(--line);background:#fff;color:var(--plum);border-radius:999px;padding:9px 14px;cursor:pointer;font-size:12px}
+    .ui-empty{border:1px dashed var(--line);border-radius:12px;padding:48px 18px;text-align:center;color:var(--muted)}
+    .account-step{display:none;padding-top:24px}.account-step.active{display:block}.auth-copy{color:var(--muted);font-size:13px;line-height:2}.auth-input{width:100%;border:1px solid var(--line);border-radius:10px;padding:13px;margin:8px 0 12px;outline:0}.auth-btn{width:100%;min-height:48px;border:0;border-radius:8px;background:var(--plum);color:#fff;cursor:pointer}
+    .account-grid{display:grid;grid-template-columns:220px 1fr;gap:22px}.account-menu{display:flex;flex-direction:column;gap:6px}.account-menu button{border:0;background:transparent;text-align:right;padding:12px;border-radius:9px;color:var(--muted);cursor:pointer}.account-menu button.active{background:var(--ivory);color:var(--plum-dark);font-weight:500}
+    .account-view{border:1px solid var(--line);border-radius:16px;padding:24px;min-height:430px}.pane{display:none}.pane.active{display:block}.welcome{text-align:center;padding:52px 20px;border-radius:15px;background:linear-gradient(135deg,#fff,var(--ivory))}.welcome h3{font-family:"Playfair Display","Vazirmatn",serif;color:var(--plum-dark);font-size:28px;margin:0 0 12px}.welcome p{color:var(--muted);line-height:2}.welcome strong{display:block;direction:ltr;margin-top:16px;color:var(--plum);font-family:"Playfair Display",serif;font-weight:500}
+    .orders-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.status-filter{border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:#fff}.orders-wrap{overflow:auto}.orders-table{width:100%;min-width:760px;border-collapse:collapse;font-size:12px}.orders-table th,.orders-table td{padding:12px 8px;border-bottom:1px solid var(--line);text-align:right}.mini{border:1px solid var(--plum);background:#fff;color:var(--plum);border-radius:7px;padding:7px 9px;cursor:pointer;font-size:11px}
+    .profile-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.profile-form label{display:flex;flex-direction:column;gap:7px;font-size:12px}.profile-form input,.profile-form select,.profile-form textarea{border:1px solid var(--line);border-radius:9px;padding:12px;outline:0}.profile-form textarea{min-height:130px;resize:vertical}.profile-form .full{grid-column:1/-1}.support-form{display:none;margin-top:16px}.support-form.active{display:grid}
+    .simple-card{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
+    #cartLayer .ui-panel{display:flex;flex-direction:column;overflow:hidden;padding:0}
+    #cartLayer .ui-head{flex:0 0 auto;padding:28px 28px 18px;margin:0}
+    .cart-body{flex:1;min-height:0;display:flex;flex-direction:column}
+    .cart-items{flex:1;min-height:0;overflow:auto;padding:0 28px}
+    .cart-item{display:grid;grid-template-columns:82px minmax(0,1fr) auto;gap:14px;align-items:start;padding:22px 0;border-bottom:1px solid var(--line)}
+    .cart-item img{width:82px;height:96px;object-fit:cover;border-radius:10px}
+    .cart-item h3{margin:0 0 7px;font-size:14px;color:var(--plum-dark)}
+    .cart-item .item-price{margin:0;color:var(--muted);font-size:11px}
+    .cart-actions{align-self:center;display:flex;flex-direction:column;align-items:center;gap:5px;white-space:nowrap}.cart-details{display:inline-block;color:var(--plum);font-size:12px;padding:7px 0;text-decoration:none;transition:color .2s ease}.cart-details:hover{color:var(--plum-dark)}.cart-remove{border:0;background:transparent;color:#a24e60;cursor:pointer;padding:7px 0;font-size:12px}
+    .qty{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:5px 9px;margin-top:12px;direction:ltr}
+    .qty button{width:22px;height:22px;border:0;background:transparent;color:var(--plum);cursor:pointer;font-size:17px;line-height:1}
+    .qty span{min-width:18px;text-align:center;color:var(--ink);font-size:13px}
+    .cart-summary{flex:0 0 auto;margin:0;padding:20px 28px 28px;border-top:1px solid var(--line);background:#fff;box-shadow:0 -12px 30px rgba(59,35,86,.05)}
+    .cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-weight:500}
+    .cart-total strong{color:var(--plum-dark)}
+    .checkout{width:100%;min-height:52px;border:0;border-radius:8px;background:var(--plum);color:#fff;cursor:pointer;transition:.2s ease}
+    .checkout:hover{background:var(--plum-dark);transform:translateY(-1px)}
+    .cart-empty{display:none;flex:1;min-height:0;padding:44px 28px;text-align:center;align-items:center;justify-content:center;flex-direction:column}
+    .cart-empty.show{display:flex}
+    .cart-empty-flower{font-size:42px;line-height:1;margin-bottom:16px}
+    .cart-empty h3{margin:0 0 8px;color:var(--plum-dark);font-size:20px;font-weight:500}
+    .cart-empty p{max-width:280px;margin:0 0 24px;color:var(--muted);font-size:12px;line-height:1.9}
+    .cart-gallery-btn{min-width:180px;min-height:46px;border:1px solid var(--plum);border-radius:7px;background:#fff;color:var(--plum);cursor:pointer}
+    #cartLayer.empty .cart-items,#cartLayer.empty .cart-summary{display:none}
+    #cartLayer.empty .cart-empty{display:flex}
+    @media(max-width:720px){#cartLayer .ui-head{padding:22px 20px 16px}.cart-items{padding:0 20px}.cart-summary{padding:18px 20px 22px}.cart-item{grid-template-columns:74px minmax(0,1fr) auto;gap:11px}.cart-item img{width:74px;height:88px}}
+    @media(max-width:720px){.ui-panel{width:100%}.account-grid{grid-template-columns:1fr}.account-menu{display:grid;grid-template-columns:1fr 1fr}.profile-form{grid-template-columns:1fr}.profile-form .full{grid-column:auto}}
+
+  </style>
+</head>
+
+<body>
+  <div class="announcement">ارسال همان‌روز در تهران برای سفارش‌های ثبت‌شده تا ساعت ۱۴</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <button class="icon-button menu-button" id="menuOpen" aria-label="باز کردن منو">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <a class="brand" href="#">
+        <span class="brand-main">LUNA</span>
+        <span class="brand-sub">FLORALE</span>
+      </a>
+
+      <nav class="nav-links" aria-label="منوی اصلی">
+        <a class="active" href="#">صفحه اصلی</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#categories">مناسبت‌ها</a>
+        <a href="#custom">سفارش اختصاصی</a>
+        <a href="#journal">مجله</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button" id="searchOpen" aria-label="جستجو">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </button>
+        <button class="icon-button account-button" id="accountOpen" aria-label="حساب کاربری">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
+        </button>
+        <button class="icon-button" id="cartOpen" aria-label="سبد خرید">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+          <span class="cart-count">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-image" role="img" aria-label="دسته گل لوکس لونا فلورال"></div>
+          <div class="hero-content">
+            <div class="eyebrow">Flowers Designed</div>
+            <h1>to Be<br>Remembered</h1>
+            <p class="hero-copy">طراحی دسته‌گل‌های لوکس و ماندگار برای زیباترین و خاص‌ترین لحظات زندگی شما.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#shop">مشاهده محصولات</a>
+              <a class="btn btn-secondary" href="#custom">سفارش اختصاصی</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit">
+            <div class="circle-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22c4-3 7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 3 8 7 11Z"/><path d="M9 11c2-1 4-3 5-6 1 4-1 7-5 8"/></svg>
+            </div>
+            <div><strong>گل‌های تازه و باکیفیت</strong><span>منتخب از بهترین گل‌ها</span></div>
+          </div>
+
+          <div class="benefit">
+            <div class="circle-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+            </div>
+            <div><strong>ارسال در همان روز</strong><span>در محدوده تهران</span></div>
+          </div>
+
+          <div class="benefit">
+            <div class="circle-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 10h16v11H4zM2 6h20v4H2zM12 6v15"/><path d="M12 6H8.5A2.5 2.5 0 1 1 11 3.5ZM12 6h3.5A2.5 2.5 0 1 0 13 3.5Z"/></svg>
+            </div>
+            <div><strong>بسته‌بندی لوکس</strong><span>طراحی اختصاصی لونا</span></div>
+          </div>
+
+          <div class="benefit">
+            <div class="circle-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </div>
+            <div><strong>کارت پیام اختصاصی</strong><span>با متن دلخواه شما</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-heading section-heading-center">
+          <div class="section-kicker">SHOP BY OCCASION</div>
+          <h2 class="section-title">دسته‌بندی محبوب</h2>
+        </div>
+
+        <div class="categories">
+          <a class="category" href="#">
+            <div class="category-image"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="دسته گل روزانه"></div>
+            <h3>دسته‌گل روزانه</h3><span>طراحی ظریف و تازه</span>
+          </a>
+          <a class="category" href="#">
+            <div class="category-image"><img src="https://images.unsplash.com/photo-1567696153798-9111f9cd3d0d?auto=format&fit=crop&w=500&q=80" alt="دسته گل لاکچری"></div>
+            <h3>لاکچری</h3><span>کالکشن خاص لونا</span>
+          </a>
+          <a class="category" href="#">
+            <div class="category-image"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=500&q=80" alt="گل تولد"></div>
+            <h3>تولد</h3><span>برای ساختن یک خاطره</span>
+          </a>
+          <a class="category" href="#">
+            <div class="category-image"><img src="https://images.unsplash.com/photo-1494336956603-39a3641f004c?auto=format&fit=crop&w=500&q=80" alt="گل عشق و سالگرد"></div>
+            <h3>عشق و سالگرد</h3><span>برای عزیزترین‌ها</span>
+          </a>
+          <a class="category" href="#">
+            <div class="category-image"><img src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=80" alt="گل افتتاحیه"></div>
+            <h3>افتتاحیه</h3><span>شیک و ماندگار</span>
+          </a>
+          <a class="category" href="#">
+            <div class="category-image"><img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=500&q=80" alt="گل ترحیم"></div>
+            <h3>مجلس ترحیم</h3><span>با احترام و ظرافت</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">LUNA BESTSELLERS</div>
+            <h2 class="section-title">محصولات پرفروش</h2>
+          </div>
+          <a class="view-all" href="#">مشاهده همه</a>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=700&q=84" alt="Luna Signature">
+              <button class="wish-button" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              </button>
+            </div>
+            <div class="product-info"><h3 class="product-name">Luna Signature</h3><span class="product-price">۲,۸۵۰,۰۰۰ تومان</span></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1596438459194-f275f413d6ff?auto=format&fit=crop&w=700&q=84" alt="Velvet Dream">
+              <button class="wish-button" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              </button>
+            </div>
+            <div class="product-info"><h3 class="product-name">Velvet Dream</h3><span class="product-price">۲,۴۵۰,۰۰۰ تومان</span></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=700&q=84" alt="Étoile">
+              <button class="wish-button" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              </button>
+            </div>
+            <div class="product-info"><h3 class="product-name">Étoile</h3><span class="product-price">۳,۲۰۰,۰۰۰ تومان</span></div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1560963689-b5682b6440f8?auto=format&fit=crop&w=700&q=84" alt="Ivory Grace">
+              <button class="wish-button" aria-label="افزودن به علاقه‌مندی‌ها">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              </button>
+            </div>
+            <div class="product-info"><h3 class="product-name">Ivory Grace</h3><span class="product-price">۲,۶۵۰,۰۰۰ تومان</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="custom">
+      <div class="container">
+        <div class="custom-panel">
+          <div class="custom-image" role="img" aria-label="طراحی دسته گل اختصاصی"></div>
+          <div class="custom-copy">
+            <div class="section-kicker">MADE ESPECIALLY FOR YOU</div>
+            <h2>دسته‌گل دلخواه خود را طراحی کنید</h2>
+            <p>رنگ، بودجه، مناسبت و حس دلخواهتان را برای ما بنویسید؛ طراحان لونا یک ترکیب منحصربه‌فرد برای شما می‌سازند.</p>
+            <a class="btn btn-primary" href="#">طراحی دسته‌گل اختصاصی</a>
+
+            <div class="service-list">
+              <div class="service-item">
+                <div class="circle-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22c4-3 7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 3 8 7 11Z"/></svg></div>
+                <span>مشاوره رایگان</span>
+              </div>
+              <div class="service-item">
+                <div class="circle-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 20c4-8 8-12 16-16M9 6c1 4 3 6 7 7"/></svg></div>
+                <span>طراحی اختصاصی</span>
+              </div>
+              <div class="service-item">
+                <div class="circle-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/></svg></div>
+                <span>تحویل مطمئن</span>
+              </div>
+              <div class="service-item">
+                <div class="circle-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m12 2 3 6 7 .9-5 4.8 1.3 6.8L12 17.3 5.7 20.5 7 13.7 2 8.9 9 8Z"/></svg></div>
+                <span>رضایت مشتری</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journal">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">THE LUNA JOURNAL</div>
+            <h2 class="section-title">مجله لونا</h2>
+          </div>
+          <a class="view-all" href="#">همه مقالات</a>
+        </div>
+
+        <div class="journal-grid">
+          <article class="article">
+            <img src="https://images.unsplash.com/photo-1518709779341-56cf4535e94b?auto=format&fit=crop&w=800&q=82" alt="">
+            <div class="article-content"><small>راهنمای نگهداری</small><h3>چطور گل‌های رز را تازه‌تر نگه داریم؟</h3><p>چند نکته ساده برای افزایش ماندگاری و زیبایی دسته‌گل شما.</p></div>
+          </article>
+          <article class="article">
+            <img src="https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=800&q=82" alt="">
+            <div class="article-content"><small>انتخاب هدیه</small><h3>بهترین گل‌ها برای تولد کدام‌اند؟</h3><p>انتخاب گل بر اساس شخصیت، رنگ موردعلاقه و نوع رابطه.</p></div>
+          </article>
+          <article class="article">
+            <img src="https://images.unsplash.com/photo-1469259943454-aa100abba749?auto=format&fit=crop&w=800&q=82" alt="">
+            <div class="article-content"><small>داستان گل‌ها</small><h3>معنای گل‌های سفید در مناسبت‌های مختلف</h3><p>از آرامش و پاکی تا احترام؛ زبان پنهان گل‌های سفید.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container">
+        <h2>به دنیای زیبای لونا بپیوندید</h2>
+        <p>جدیدترین کالکشن‌ها، داستان گل‌ها و پیشنهادهای ویژه را دریافت کنید.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" required placeholder="Email address" aria-label="آدرس ایمیل">
+          <button type="submit">عضویت</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#">
+            <span class="brand-main">LUNA</span>
+            <span class="brand-sub">FLORALE</span>
+          </a>
+          <p>طراحی و ارائه دسته‌گل‌های لوکس برای لحظه‌هایی که باید به‌یادماندنی باشند.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>فروشگاه</h4>
+          <a href="#">همه محصولات</a>
+          <a href="#">دسته‌گل‌ها</a>
+          <a href="#">کالکشن لاکچری</a>
+          <a href="#">پرفروش‌ها</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>خدمات مشتریان</h4>
+          <a href="#">سؤالات متداول</a>
+          <a href="#">روش‌های پرداخت</a>
+          <a href="#">شرایط ارسال</a>
+          <a href="#">پیگیری سفارش</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>اطلاعات تماس</h4>
+          <span>۰۹۱۲ ۰۰۰ ۰۰۰۰</span>
+          <span>@luna.florale</span>
+          <span>تهران، اطلس مال</span>
+          <span>همه‌روزه ۱۰ تا ۲۲</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Luna Florale. All rights reserved.</span>
+        <span>Luxury Flowers · Tehran</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <section class="search-page" id="searchPage" aria-hidden="true"><div class="search-inner"><div class="search-top"><a class="brand" href="#"><span class="brand-main">LUNA</span><span class="brand-sub">FLORALE</span></a><button class="ui-close" data-close="searchPage" aria-label="بستن"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div><div class="section-kicker">SEARCH LUNA FLORALE</div><h2 class="section-title">جست‌وجوی محصولات</h2><form class="search-box" id="searchForm"><input id="searchInput" type="search" placeholder="نام گل، محصول یا مناسبت را جست‌وجو کنید"><button>جست‌وجو</button></form><div class="chips"><button class="chip" type="button">تولد</button><button class="chip" type="button">افتتاحیه</button><button class="chip" type="button">رز</button><button class="chip" type="button">ارکیده</button><button class="chip" type="button">ترحیم</button></div><div class="ui-empty" id="searchResult">برای نمایش نتیجه، عبارت موردنظر را جست‌وجو کنید.</div></div></section>
+
+  <div class="ui-layer" id="accountLayer" aria-hidden="true"><aside class="ui-panel wide"><div class="ui-head"><h2>حساب کاربری</h2><button class="ui-close" data-close="accountLayer"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+  <div class="account-step active" id="phoneStep"><p class="auth-copy">برای ورود یا عضویت، شماره موبایل خود را وارد کنید.</p><input class="auth-input" id="phoneInput" type="tel" inputmode="numeric" placeholder="مثلاً 09120000000"><button class="auth-btn" id="sendCode">دریافت کد تأیید</button></div>
+  <div class="account-step" id="codeStep"><p class="auth-copy">کد تأیید یک‌بارمصرف ارسال‌شده را وارد کنید.</p><input class="auth-input" id="codeInput" inputmode="numeric" maxlength="6" placeholder="کد ۶ رقمی"><button class="auth-btn" id="verifyCode">ورود به حساب کاربری</button></div>
+  <div class="account-step" id="profileStep"><div class="account-grid"><nav class="account-menu"><button class="active" data-pane="dashboardPane">داشبورد اصلی</button><button data-pane="ordersPane">سفارش‌های من</button><button data-pane="addressesPane">آدرس‌های من</button><button data-pane="favoritesPane">علاقه‌مندی‌ها</button><button data-pane="editPane">ویرایش و تکمیل پروفایل</button><button data-pane="supportPane">پشتیبانی سفارش</button><button id="logoutBtn">خروج از حساب کاربری</button></nav><section class="account-view">
+  <div class="pane active" id="dashboardPane"><div class="welcome"><h3>به دنیای لونا خوش آمدید</h3><p>اینجا هر گل برای ساختن یک خاطره طراحی می‌شود.</p><strong>Flowers Designed to Be Remembered</strong></div></div>
+  <div class="pane" id="ordersPane"><div class="orders-top"><h3>سفارش‌های من</h3><select class="status-filter"><option>همه وضعیت‌ها</option><option>ثبت‌شده</option><option>تأییدشده</option><option>در حال آماده‌سازی</option><option>ارسال‌شده</option><option>تحویل‌شده</option><option>لغوشده</option><option>وجه عودت‌شده</option></select></div><div class="orders-wrap"><table class="orders-table"><thead><tr><th>شماره سفارش</th><th>تاریخ</th><th>مبلغ</th><th>وضعیت</th><th>جزئیات</th><th>سفارش مجدد</th><th>پیگیری سفارش</th></tr></thead><tbody></tbody></table></div><div class="ui-empty">هنوز سفارشی ثبت نکرده‌اید.</div></div>
+  <div class="pane" id="addressesPane"><h3>آدرس‌های من</h3><div class="simple-card"><strong>هنوز آدرسی ثبت نشده است.</strong><p>امکان افزودن چند آدرس، ویرایش، حذف و انتخاب آدرس پیش‌فرض وجود دارد.</p></div><button class="btn btn-primary">افزودن آدرس جدید</button></div>
+  <div class="pane" id="favoritesPane"><h3>علاقه‌مندی‌ها</h3><div class="simple-card">محصولات ذخیره‌شده شما در این قسمت نمایش داده می‌شوند و می‌توانید آن‌ها را حذف یا مستقیماً به سبد خرید اضافه کنید.</div></div>
+  <div class="pane" id="editPane"><h3>ویرایش و تکمیل پروفایل</h3><form class="profile-form" id="profileForm"><label>نام و نام خانوادگی<input></label><label>نام کاربری<input></label><label>شماره موبایل<input type="tel" value="09120000000"></label><label>ایمیل (اختیاری)<input type="email"></label><label>تاریخ تولد (اختیاری)<input type="date"></label><button class="btn btn-primary full">ذخیره تغییرات</button></form></div>
+  <div class="pane" id="supportPane"><h3>پشتیبانی سفارش</h3><select class="status-filter" id="supportType"><option value="order">پیگیری سفارش</option><option value="stock">استعلام موجودی</option></select><form class="profile-form support-form active" id="orderSupport"><label class="full">شماره سفارش<input id="supportOrderNo"></label><label class="full">متن پیام<textarea></textarea></label><button class="btn btn-primary full">ارسال پیام</button></form><form class="profile-form support-form" id="stockSupport"><label class="full">کد محصول موردنظر<input></label><label class="full">متن پیام<textarea></textarea></label><button class="btn btn-primary full">ارسال پیام</button></form></div>
+  </section></div></div></aside></div>
+
+  <div class="ui-layer" id="cartLayer" aria-hidden="true"><aside class="ui-panel"><div class="ui-head"><h2>سبد خرید</h2><button class="ui-close" data-close="cartLayer" aria-label="بستن سبد خرید"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+  <div class="cart-body">
+    <div class="cart-items" id="cartItems">
+      <div class="cart-item" data-price="2850000"><img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=300&q=82" alt="Luna Signature"><div><h3>Luna Signature</h3><p class="item-price">۲,۸۵۰,۰۰۰ تومان</p><div class="qty"><button type="button" class="qty-minus" aria-label="کاهش تعداد">−</button><span>1</span><button type="button" class="qty-plus" aria-label="افزایش تعداد">+</button></div></div><div class="cart-actions"><a class="cart-details" href="LunaFlorale_ProductPage_Merged.html">جزئیات محصول</a><button type="button" class="cart-remove">حذف</button></div></div>
+      <div class="cart-item" data-price="2450000"><img src="https://images.unsplash.com/photo-1596438459194-f275f413d6ff?auto=format&fit=crop&w=300&q=82" alt="Velvet Dream"><div><h3>Velvet Dream</h3><p class="item-price">۲,۴۵۰,۰۰۰ تومان</p><div class="qty"><button type="button" class="qty-minus" aria-label="کاهش تعداد">−</button><span>1</span><button type="button" class="qty-plus" aria-label="افزایش تعداد">+</button></div></div><div class="cart-actions"><a class="cart-details" href="LunaFlorale_ProductPage_Merged.html">جزئیات محصول</a><button type="button" class="cart-remove">حذف</button></div></div>
+    </div>
+    <div class="cart-empty" id="cartEmpty"><div class="cart-empty-flower" aria-hidden="true">🌸</div><h3>سبد خرید شما خالی است</h3><p>هنوز گلی برای این لحظه انتخاب نکرده‌اید.</p><button type="button" class="cart-gallery-btn" id="cartGalleryBtn">مشاهده گالری</button></div>
+    <div class="cart-summary"><div class="cart-total"><span>مبلغ کل</span><strong id="cartTotal">۵,۳۰۰,۰۰۰ تومان</strong></div><button type="button" class="checkout">تکمیل خرید</button></div>
+  </div></aside></div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-head">
+        <a class="brand" href="#"><span class="brand-main">LUNA</span><span class="brand-sub">FLORALE</span></a>
+        <button class="icon-button" id="menuClose" aria-label="بستن منو">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="mobile-menu-links">
+        <a href="#">صفحه اصلی</a>
+        <a href="#shop">فروشگاه</a>
+        <a href="#categories">مناسبت‌ها</a>
+        <a href="#custom">سفارش اختصاصی</a>
+        <a href="#journal">مجله</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">با موفقیت انجام شد</div>
+
+  <script>
+    const mobileMenu = document.getElementById("mobileMenu");
+    const openBtn = document.getElementById("menuOpen");
+    const closeBtn = document.getElementById("menuClose");
+    const toast = document.getElementById("toast");
+
+    function openMenu() {
+      mobileMenu.classList.add("open");
+      document.body.classList.add("menu-open");
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove("open");
+      document.body.classList.remove("menu-open");
+    }
+
+    openBtn.addEventListener("click", openMenu);
+    closeBtn.addEventListener("click", closeMenu);
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target === mobileMenu) closeMenu();
+    });
+
+    document.querySelectorAll(".mobile-menu-links a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.querySelectorAll(".wish-button").forEach(button => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("active");
+        showToast(button.classList.contains("active")
+          ? "به علاقه‌مندی‌ها اضافه شد"
+          : "از علاقه‌مندی‌ها حذف شد");
+      });
+    });
+
+    document.getElementById("newsletterForm").addEventListener("submit", event => {
+      event.preventDefault();
+      event.target.reset();
+      showToast("عضویت شما با موفقیت ثبت شد");
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    const searchPage=document.getElementById("searchPage"),accountLayer=document.getElementById("accountLayer"),cartLayer=document.getElementById("cartLayer");
+    function openUi(el){el.classList.add("open");el.setAttribute("aria-hidden","false");document.body.classList.add("menu-open")}
+    function closeUi(el){el.classList.remove("open");el.setAttribute("aria-hidden","true");document.body.classList.remove("menu-open")}
+    document.getElementById("searchOpen").addEventListener("click",()=>openUi(searchPage));document.getElementById("accountOpen").addEventListener("click",()=>openUi(accountLayer));document.getElementById("cartOpen").addEventListener("click",()=>openUi(cartLayer));
+    document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>closeUi(document.getElementById(b.dataset.close))));[accountLayer,cartLayer].forEach(x=>x.addEventListener("click",e=>{if(e.target===x)closeUi(x)}));
+    document.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{document.getElementById("searchInput").value=c.textContent.trim();document.getElementById("searchResult").textContent=`نتایج مرتبط با «${c.textContent.trim()}» در این قسمت نمایش داده می‌شوند.`}));
+    document.getElementById("searchForm").addEventListener("submit",e=>{e.preventDefault();const v=document.getElementById("searchInput").value.trim();document.getElementById("searchResult").textContent=v?`نتایج مرتبط با «${v}» در این قسمت نمایش داده می‌شوند.`:"لطفاً عبارت موردنظر را وارد کنید."});
+    const phoneStep=document.getElementById("phoneStep"),codeStep=document.getElementById("codeStep"),profileStep=document.getElementById("profileStep");
+    document.getElementById("sendCode").addEventListener("click",()=>{const v=document.getElementById("phoneInput").value.trim();if(!/^09\d{9}$/.test(v)){showToast("شماره موبایل معتبر وارد کنید");return}phoneStep.classList.remove("active");codeStep.classList.add("active");showToast("کد تأیید ارسال شد")});
+    document.getElementById("verifyCode").addEventListener("click",()=>{if(document.getElementById("codeInput").value.trim().length<4){showToast("کد تأیید را وارد کنید");return}codeStep.classList.remove("active");profileStep.classList.add("active");showToast("با موفقیت وارد شدید")});
+    document.querySelectorAll(".account-menu button[data-pane]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".account-menu button[data-pane]").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".pane").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.pane).classList.add("active")}));
+    document.getElementById("logoutBtn").addEventListener("click",()=>{profileStep.classList.remove("active");codeStep.classList.remove("active");phoneStep.classList.add("active");showToast("از حساب کاربری خارج شدید")});
+    document.getElementById("supportType").addEventListener("change",e=>{document.querySelectorAll(".support-form").forEach(x=>x.classList.remove("active"));document.getElementById(e.target.value==="order"?"orderSupport":"stockSupport").classList.add("active")});
+    document.getElementById("profileForm").addEventListener("submit",e=>{e.preventDefault();showToast("اطلاعات پروفایل ذخیره شد")});document.querySelectorAll(".support-form").forEach(f=>f.addEventListener("submit",e=>{e.preventDefault();showToast("پیام شما برای پشتیبانی ارسال شد")}));
+
+    const cartItems=document.getElementById("cartItems"),cartTotal=document.getElementById("cartTotal"),cartCount=document.querySelector(".cart-count");
+    const faNumber=n=>new Intl.NumberFormat("fa-IR").format(n);
+    function updateCart(){
+      const items=[...cartItems.querySelectorAll(".cart-item")];
+      let total=0,count=0;
+      items.forEach(item=>{const q=Number(item.querySelector(".qty span").textContent)||1;total+=Number(item.dataset.price)*q;count+=q});
+      cartTotal.textContent=`${faNumber(total)} تومان`;
+      cartCount.textContent=faNumber(count);
+      cartCount.style.display=count?"grid":"none";
+      cartLayer.classList.toggle("empty",items.length===0);
+    }
+    cartItems.addEventListener("click",e=>{
+      const item=e.target.closest(".cart-item");if(!item)return;
+      const value=item.querySelector(".qty span");let qty=Number(value.textContent)||1;
+      if(e.target.closest(".qty-plus")){value.textContent=qty+1;updateCart()}
+      if(e.target.closest(".qty-minus")){if(qty>1){value.textContent=qty-1;updateCart()}else{item.remove();updateCart();showToast("محصول از سبد خرید حذف شد")}}
+      if(e.target.closest(".cart-remove")){item.remove();updateCart();showToast("محصول از سبد خرید حذف شد")}
+    });
+    document.getElementById("cartGalleryBtn").addEventListener("click",()=>{closeUi(cartLayer);document.getElementById("shop")?.scrollIntoView({behavior:"smooth"})});
+    document.querySelector(".checkout").addEventListener("click",()=>showToast("انتقال به مرحله تکمیل خرید"));
+    updateCart();
+
+  </script>
+</body>
+</html>

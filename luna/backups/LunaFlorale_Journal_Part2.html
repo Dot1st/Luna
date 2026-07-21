@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<title>Luna Journal Part 2</title>
+<style>
+/* ===== Luna Journal Part 2 : Replace <style> with this ===== */
+
+/* Premium card */
+.card{
+position:relative;
+background:#fff;
+border-radius:30px;
+overflow:hidden;
+box-shadow:0 22px 60px rgba(44,20,72,.10);
+transition:.55s cubic-bezier(.22,.61,.36,1);
+border:1px solid rgba(255,255,255,.5);
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 35px 80px rgba(44,20,72,.18);
+}
+.image{
+position:relative;
+height:430px;
+overflow:hidden;
+background:
+linear-gradient(rgba(0,0,0,.08),rgba(0,0,0,.18)),
+url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80')
+center/cover;
+transition:.8s ease;
+}
+.card:hover .image{
+transform:scale(1.05);
+}
+.image::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(30,16,46,.55),transparent 55%);
+transition:.5s;
+}
+.content{
+padding:34px;
+background:#fff;
+position:relative;
+z-index:2;
+}
+.title{
+font-size:28px;
+line-height:1.7;
+margin:0 0 22px;
+font-weight:500;
+color:#3c2b56;
+}
+.discover{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:14px 30px;
+border-radius:999px;
+text-decoration:none;
+color:#fff;
+background:rgba(255,255,255,.18);
+border:1px solid rgba(255,255,255,.28);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+box-shadow:0 10px 28px rgba(0,0,0,.18);
+transition:.35s;
+}
+.content .discover{
+background:rgba(75,46,131,.08);
+color:#4b2e83;
+border-color:rgba(75,46,131,.15);
+}
+.discover:hover{
+transform:scale(1.04);
+background:rgba(75,46,131,.12);
+}
+.hidden{
+display:none;
+margin-top:26px;
+padding-top:26px;
+border-top:1px solid rgba(75,46,131,.08);
+line-height:2.2;
+color:#6d647d;
+}
+.card.expanded{
+grid-column:span 2;
+}
+.card.expanded .image{
+height:520px;
+filter:blur(8px);
+transform:scale(1.08);
+}
+.card.expanded .image::after{
+background:rgba(23,13,36,.52);
+}
+@media(max-width:900px){
+.card.expanded{grid-column:span 1;}
+.image{height:300px}
+.title{font-size:22px}
+}
+</style>
+</head>
+<body style="font-family:Tahoma;padding:40px;background:#faf8fc">
+<h2>پارت ۲ - استایل‌های ارتقایافته ژورنال</h2>
+<p>این فایل شامل CSS نهایی کارت‌ها، Glassmorphism، Hover، Zoom، Blur و استایل حالت Expand است و در پارت ۳ عملکرد JavaScript به آن اضافه خواهد شد.</p>
+<pre style="white-space:pre-wrap;background:#fff;padding:20px;border-radius:12px;border:1px solid #ddd;overflow:auto;">Replace the &lt;style&gt; section in Part 1 with the CSS contained in this file.</pre>
+</body></html>
